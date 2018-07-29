@@ -1,0 +1,6 @@
+<resources>
+    <string-array name="genderOptions">
+        <item><FONT COLOR="#FFFFFF">Male</FONT></item>
+        <item>Female</item>
+    </string-array>
+</resources>
