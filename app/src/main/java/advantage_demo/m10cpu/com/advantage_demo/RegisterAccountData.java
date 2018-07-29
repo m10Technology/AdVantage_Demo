@@ -7,10 +7,46 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import org.w3c.dom.Text;
 
 
 public class RegisterAccountData extends Fragment {
+
+    private String username;
+    private String email;
+    private String password;
+
+    private View view;
+
+    public String getUsername(){
+        return username;
+    }
+
+    public String getEmail(){
+        return email;
+    }
+
+    public String getPassword(){
+        return password;
+    }
+
+
+    public boolean fillInfo(){
+        try{
+            TextView textView = (TextView)view.findViewById(R.id.username_form);
+                username = textView.getText().toString();
+            textView = (TextView)view.findViewById(R.id.password_form);
+                password = textView.getText().toString();
+            textView = (TextView)view.findViewById(R.id.email_form);
+                email = textView.getText().toString();
+             return true;
+
+        }catch(Exception e){
+            return false;
+        }
+    }
 
     public RegisterAccountData() {
         // Required empty public constructor
@@ -26,7 +62,8 @@ public class RegisterAccountData extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_register_account_data, container, false);
+        view = inflater.inflate(R.layout.fragment_register_account_data, container, false);
+        return view;
     }
 
 

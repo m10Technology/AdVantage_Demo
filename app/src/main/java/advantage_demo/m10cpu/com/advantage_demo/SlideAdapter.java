@@ -17,23 +17,29 @@ import android.widget.RelativeLayout;
 public class SlideAdapter extends FragmentPagerAdapter{
     private Context context;
     private LayoutInflater layoutInflater;
+    private Fragment[] myPages;
+
 
     public SlideAdapter(FragmentManager fm) {
         super(fm);
+        myPages = new Fragment[4];
     }
-    //private int[] pages = {R.layout.activity_register_welcome,R.layout.activity_register_account_data};
-
 
     @Override
     public Fragment getItem(int i) {
         switch(i){
-            case 0: return RegisterWelcome.newInstance();
-            case 1: return RegisterAccountData.newInstance();
-            case 2: return RegisterUserData.newInstance();
-            case 3: return RegisterUserInfo.newInstance();
-            default: return RegisterWelcome.newInstance();
+            case 0: myPages[0] = RegisterWelcome.newInstance(); return myPages[0];
+            case 1: myPages[1] = RegisterAccountData.newInstance(); return myPages[1];
+            case 2: myPages[2] = RegisterUserData.newInstance(); return myPages[2];
+            case 3: myPages[3] = RegisterUserInfo.newInstance(); return myPages[3];
+            default: myPages[0] = RegisterWelcome.newInstance(); return myPages[0];
         }
     }
+
+    public Fragment[] getMyPages() {
+        return myPages;
+    }
+
 
     @Override
     public int getCount() {

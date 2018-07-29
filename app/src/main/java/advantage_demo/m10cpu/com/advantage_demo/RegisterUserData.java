@@ -42,6 +42,19 @@ public class RegisterUserData extends Fragment implements View.OnClickListener{
         // Required empty public constructor
     }
 
+    public Boolean getGender(){
+        if(genderSpinner.getSelectedItem().toString().equals("Male")){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public Calendar getMyCal() {
+        return myCal;
+    }
+
     public static RegisterUserData newInstance() {
         RegisterUserData fragment = new RegisterUserData();
         return fragment;

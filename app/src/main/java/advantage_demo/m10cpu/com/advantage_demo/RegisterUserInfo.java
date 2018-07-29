@@ -79,6 +79,10 @@ public class RegisterUserInfo extends Fragment {
         return myView;
     }
 
+    public ArrayList<String> getTags(){
+        return itemsSelected;
+    }
+
     public void buttonClicked(String buttonText){
         Vibrator v = (Vibrator) vg.getContext().getSystemService(Context.VIBRATOR_SERVICE);
         v.vibrate(20);
@@ -95,15 +99,15 @@ public class RegisterUserInfo extends Fragment {
         int mSize = itemsSelected.size();
 
         if(mSize == 0){
-            Log.i("","Got 0"); checkBox1.setImageResource(R.drawable.empty_circle); checkBox2.setImageResource(R.drawable.empty_circle); checkBox3.setImageResource(R.drawable.empty_circle); checkBox4.setImageResource(R.drawable.empty_circle);
+            checkBox1.setImageResource(R.drawable.empty_circle); checkBox2.setImageResource(R.drawable.empty_circle); checkBox3.setImageResource(R.drawable.empty_circle); checkBox4.setImageResource(R.drawable.empty_circle);
         }else if(mSize == 1){
-            Log.i("","Got 1"); checkBox1.setImageResource(R.drawable.check_circle); checkBox2.setImageResource(R.drawable.empty_circle); checkBox3.setImageResource(R.drawable.empty_circle); checkBox4.setImageResource(R.drawable.empty_circle);
+            checkBox1.setImageResource(R.drawable.check_circle); checkBox2.setImageResource(R.drawable.empty_circle); checkBox3.setImageResource(R.drawable.empty_circle); checkBox4.setImageResource(R.drawable.empty_circle);
         }else if(mSize ==2){
-            Log.i("","Got 2"); checkBox1.setImageResource(R.drawable.check_circle); checkBox2.setImageResource(R.drawable.check_circle); checkBox3.setImageResource(R.drawable.empty_circle); checkBox4.setImageResource(R.drawable.empty_circle);
+            checkBox1.setImageResource(R.drawable.check_circle); checkBox2.setImageResource(R.drawable.check_circle); checkBox3.setImageResource(R.drawable.empty_circle); checkBox4.setImageResource(R.drawable.empty_circle);
         }else if(mSize ==3){
-            Log.i("","Got 3"); checkBox1.setImageResource(R.drawable.check_circle); checkBox2.setImageResource(R.drawable.check_circle); checkBox3.setImageResource(R.drawable.check_circle); checkBox4.setImageResource(R.drawable.empty_circle);
+            checkBox1.setImageResource(R.drawable.check_circle); checkBox2.setImageResource(R.drawable.check_circle); checkBox3.setImageResource(R.drawable.check_circle); checkBox4.setImageResource(R.drawable.empty_circle);
         }else if(mSize ==4){
-            Log.i("","Got 4"); checkBox1.setImageResource(R.drawable.check_circle); checkBox2.setImageResource(R.drawable.check_circle); checkBox3.setImageResource(R.drawable.check_circle); checkBox4.setImageResource(R.drawable.check_circle);
+            checkBox1.setImageResource(R.drawable.check_circle); checkBox2.setImageResource(R.drawable.check_circle); checkBox3.setImageResource(R.drawable.check_circle); checkBox4.setImageResource(R.drawable.check_circle);
         }
 
 
