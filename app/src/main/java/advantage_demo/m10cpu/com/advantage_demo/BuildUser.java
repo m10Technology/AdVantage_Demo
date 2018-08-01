@@ -14,21 +14,19 @@ public class BuildUser {
     Calendar mBirth;
     Boolean gender;
 
-    public BuildUser(String un,String ps,String em, Boolean gn,Calendar br){
+    public BuildUser(String un,String ps,String em, Boolean gn,Calendar br,ArrayList<String> tagsIn){
         mUsername = un;
         mPassword = ps;
         mEmail = em;
         gender = gn;
         mBirth = br;
+        tags = tagsIn;
+
+        Log.i("Built user from:" ,mUsername+" "+mPassword+" "+mEmail+" "+gender);
+
+
     }
 
-    public BuildUser(String un,String ps, String em){
-        mUsername = un;
-        mPassword = ps;
-        mEmail = em;
-
-        Log.i("Build User","User build with info " + mUsername+" "+mPassword+" "+mEmail);
-    }
 
 
     public void addTag(String tag){

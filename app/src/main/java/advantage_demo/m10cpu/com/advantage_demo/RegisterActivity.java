@@ -54,34 +54,36 @@ public class RegisterActivity extends AppCompatActivity {
         slideViewPager.setCurrentItem(slideViewPager.getCurrentItem()-1);
     }
     public void nextButtonClick(View view){
+        if(nextButton.getText().equals("Done")){
+            //Build User
+            myPages = slideAdapter.getMyPages();
+
+            RegisterAccountData accountDataPage = (RegisterAccountData)myPages[1];
+            accountDataPage.fillInfo();
+            String username = accountDataPage.getUsername();
+            String email = accountDataPage.getEmail();
+            String password = accountDataPage.getPassword();
+
+
+            RegisterUserData userDataPage = (RegisterUserData)myPages[2];
+            Boolean gender = null;
+            Calendar date = null;
+            try {
+                gender = userDataPage.getGender();
+                date = userDataPage.getMyCal();
+            }catch(Exception e){}
+
+            RegisterUserInfo userInfoPage = (RegisterUserInfo)myPages[3];
+            ArrayList<String> tags = userInfoPage.getTags();
+
+            myUser = new BuildUser(username,password,email,gender,date,tags);
+        }
+
         if(slideViewPager.getCurrentItem()+2 == slideAdapter.getCount()){
             nextButton.setText("Done");
         }
-            slideViewPager.setCurrentItem(slideViewPager.getCurrentItem()+1);
-        if(nextButton.getText().equals("Done")){
-            //Build User
+        slideViewPager.setCurrentItem(slideViewPager.getCurrentItem()+1);
 
-
-
-            myPages = slideAdapter.getMyPages();
-            RegisterAccountData accountDataPage = (RegisterAccountData)myPages[1];
-                accountDataPage.fillInfo();
-                String username = accountDataPage.getUsername();
-                String email = accountDataPage.getEmail();
-                String password = accountDataPage.getPassword();
-
-            /**
-            RegisterUserData userDataPage = (RegisterUserData)myPages[2];
-                Boolean gender = userDataPage.getGender();
-                Calendar date = userDataPage.getMyCal();
-
-            RegisterUserInfo userInfoPage = (RegisterUserInfo)myPages[3];
-                ArrayList<String> tags = userInfoPage.getTags();
-             **/
-
-
-            myUser = new BuildUser(username,password,email);
-        }
 
     }
 
