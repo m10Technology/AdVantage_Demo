@@ -76,7 +76,6 @@ public class RegisterUserData extends Fragment implements View.OnClickListener{
         return v;
     }
 
-
     @Override
     public void onClick(View view) {
         // TODO Auto-generated method stub

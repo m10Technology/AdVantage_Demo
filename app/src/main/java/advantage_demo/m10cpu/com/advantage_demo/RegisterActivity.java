@@ -77,13 +77,15 @@ public class RegisterActivity extends AppCompatActivity {
             ArrayList<String> tags = userInfoPage.getTags();
 
             myUser = new BuildUser(username,password,email,gender,date,tags);
+
+
+
         }
 
         if(slideViewPager.getCurrentItem()+2 == slideAdapter.getCount()){
             nextButton.setText("Done");
         }
         slideViewPager.setCurrentItem(slideViewPager.getCurrentItem()+1);
-
 
     }
 

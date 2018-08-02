@@ -23,6 +23,9 @@ public class BuildUser {
         tags = tagsIn;
 
         Log.i("Built user from:" ,mUsername+" "+mPassword+" "+mEmail+" "+gender);
+        for(int i=0;i<tags.size();i++){
+            Log.i("Tag:",tags.get(i).toString());
+        }
 
 
     }
