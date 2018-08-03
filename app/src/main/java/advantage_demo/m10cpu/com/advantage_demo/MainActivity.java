@@ -35,11 +35,11 @@ public class MainActivity extends AppCompatActivity {
                     toast.show();
                     openScanner();
                 }
-            }else{
-                Toast toast = Toast.makeText(getBaseContext(),"No QR code found, please retry.",Toast.LENGTH_LONG);
-                toast.show();
-                openScanner();
-            }
+                }else{
+                    Toast toast = Toast.makeText(getBaseContext(),"No QR code found, please retry.",Toast.LENGTH_LONG);
+                    toast.show();
+                    openScanner();
+                }
 
     }
 

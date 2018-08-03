@@ -20,6 +20,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import javax.net.ssl.HttpsURLConnection;
+
 public class RegisterActivity extends AppCompatActivity {
 
     private ViewPager slideViewPager;
@@ -106,10 +108,10 @@ public class RegisterActivity extends AppCompatActivity {
 
 
         try{
-            URL url = new URL("http://192.168.1.134/register.php");
+            URL url = new URL("https://192.168.1.134/register.php");
             String urlParams = "name="+myUser.mUsername+"&password="+myUser.mPassword+"&email="+myUser.mEmail+"&gender="+myUser.getGender()+"&date="+myUser.getDate()+"&tags="+myUser.tagString;
 
-            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+            HttpsURLConnection urlConnection = (HttpsURLConnection) url.openConnection();
             urlConnection.setDoOutput(true);
             OutputStream os = urlConnection.getOutputStream();
             os.write(urlParams.getBytes());
