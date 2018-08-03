@@ -11,8 +11,17 @@ public class BuildUser {
     String mUsername;
     String mPassword;
     String mEmail;
+    String tagString;
     Calendar mBirth;
     Boolean gender;
+
+    public int getGender(){
+        if(gender){
+            return 1;
+        }else{
+            return 0;
+        }
+    }
 
     public BuildUser(String un,String ps,String em, Boolean gn,Calendar br,ArrayList<String> tagsIn){
         mUsername = un;
@@ -23,14 +32,17 @@ public class BuildUser {
         tags = tagsIn;
 
         Log.i("Built user from:" ,mUsername+" "+mPassword+" "+mEmail+" "+gender);
-        for(int i=0;i<tags.size();i++){
-            Log.i("Tag:",tags.get(i).toString());
+        tagString = tags.get(0);
+        for(int i=1;i<tags.size();i++){
+            tagString += ", "+tags.get(i).toString();
         }
-
 
     }
 
-
+    public String getDate(){
+        Date date = mBirth.getTime();
+        return date.toString();
+    }
 
     public void addTag(String tag){
         tags.add(tag);

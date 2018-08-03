@@ -78,7 +78,14 @@ public class RegisterActivity extends AppCompatActivity {
 
             myUser = new BuildUser(username,password,email,gender,date,tags);
 
-
+            if(registerUser(myUser)){
+                Toast toast = Toast.makeText(getBaseContext(),"Account Created Successfully!",Toast.LENGTH_LONG);
+                toast.show();
+                finish();
+            }else{
+                Toast toast = Toast.makeText(getBaseContext(),"Error! Something went wrong...",Toast.LENGTH_LONG);
+                toast.show();
+            }
 
         }
 
@@ -89,6 +96,47 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 
+    public boolean registerUser(BuildUser myUser){
+
+        String data = "";
+        int tmp;
+
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
+
+        try{
+            URL url = new URL("http://192.168.1.134/register.php");
+            String urlParams = "name="+myUser.mUsername+"&password="+myUser.mPassword+"&email="+myUser.mEmail+"&gender="+myUser.getGender()+"&date="+myUser.getDate()+"&tags="+myUser.tagString;
+
+            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+            urlConnection.setDoOutput(true);
+            OutputStream os = urlConnection.getOutputStream();
+            os.write(urlParams.getBytes());
+            os.flush();
+            os.close();
+
+            InputStream is = urlConnection.getInputStream();
+            while((tmp=is.read())!=1){
+                data+= (char)tmp;
+                Log.i("",data);
+                if(data.contains("SQL Query Complete!")){
+                    is.close();
+                    urlConnection.disconnect();
+                    return true;
+                }
+            }
+            is.close();
+            urlConnection.disconnect();
+
+
+
+        }catch(Exception e){
+            e.printStackTrace();
+            return false;
+        }
+        return false;
+    }
 
 }
 

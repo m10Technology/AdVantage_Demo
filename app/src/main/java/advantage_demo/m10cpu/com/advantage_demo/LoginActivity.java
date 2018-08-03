@@ -31,6 +31,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -357,6 +358,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                         is.close();
                         urlConnection.disconnect();
                         return true;
+                    }else if(data.contains("Login Failed")){
+                        Toast toast = Toast.makeText(getBaseContext(),"Error Logging in. Try different Username or Password",Toast.LENGTH_LONG);
+                        toast.show();
+                        return false;
                     }
                 }
                 is.close();
