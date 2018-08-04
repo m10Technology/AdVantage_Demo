@@ -108,10 +108,10 @@ public class RegisterActivity extends AppCompatActivity {
 
 
         try{
-            URL url = new URL("https://192.168.1.134/register.php");
+            URL url = new URL("http://68.134.243.17/register.php");
             String urlParams = "name="+myUser.mUsername+"&password="+myUser.mPassword+"&email="+myUser.mEmail+"&gender="+myUser.getGender()+"&date="+myUser.getDate()+"&tags="+myUser.tagString;
 
-            HttpsURLConnection urlConnection = (HttpsURLConnection) url.openConnection();
+            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setDoOutput(true);
             OutputStream os = urlConnection.getOutputStream();
             os.write(urlParams.getBytes());

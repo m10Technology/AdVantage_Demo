@@ -340,7 +340,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             int tmp;
 
             try{
-                URL url = new URL("http://192.168.1.134/login.php");
+                URL url = new URL("http://68.134.243.17/login.php");
                 String urlParams = "name="+mEmail+"&password="+mPassword;
 
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
